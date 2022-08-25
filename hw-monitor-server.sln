@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hw-monitor-server", "hw-monitor-server\hw-monitor-server.csproj", "{8D1C0B99-45B9-407C-BC89-5D18E4372A78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hw-monitor-lib", "hw-monitor-lib\hw-monitor-lib.csproj", "{F0A006A1-D601-47E4-8E59-682A606404D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D1C0B99-45B9-407C-BC89-5D18E4372A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1C0B99-45B9-407C-BC89-5D18E4372A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D1C0B99-45B9-407C-BC89-5D18E4372A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1C0B99-45B9-407C-BC89-5D18E4372A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0A006A1-D601-47E4-8E59-682A606404D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0A006A1-D601-47E4-8E59-682A606404D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0A006A1-D601-47E4-8E59-682A606404D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0A006A1-D601-47E4-8E59-682A606404D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31C05E37-933D-4343-AA09-815AA30C06A3}
+	EndGlobalSection
+EndGlobal

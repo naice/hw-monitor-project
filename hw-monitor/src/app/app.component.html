@@ -1,0 +1,21 @@
+<video style="width: 100%; height: 100%; position: absolute; object-fit: cover;" src="/assets/particles.webm" autoplay loop></video>
+<div class="container" #container>
+  <div class="loading-spinner-container" *ngIf="data.length <= 0">
+    <mat-progress-spinner mode="indeterminate" style="margin: auto;"></mat-progress-spinner>
+  </div>
+  <mat-grid-list #gridlist [cols]="gridListBreakpoint" rowHeight="132px" (window:resize)="calcGridListBreakpoint()" style="width: 100%; height: 100%;">
+    <mat-grid-tile *ngFor="let item of data">
+      <div class="grid-card-wrapper">
+        <mat-card class="my-mat-card mat-elevation-z8" style="background: url(../assets/{{item.backdrop}});">
+          <h1>{{item.name}}</h1>
+          <div class="values-container">
+            <div class="values" *ngIf="item.icon" ><fa-icon [icon]="item.icon"></fa-icon></div>
+            <div class="values"><span style="font-size: 1em;">{{item.min}}</span></div>
+            <div class="values"><span style="font-size: 1.5em;">{{item.val}}</span></div>
+            <div class="values"><span style="font-size: 1em;">{{item.max}}</span></div>
+          </div>
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
