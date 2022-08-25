@@ -85,10 +85,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
       const data: DisplayData = {
         source: item,
-        name: config.name ?? item.Text,
-        min: ''+item.Min,
-        max: ''+item.Max,
-        val: ''+item.Value,
+        name: config.name ?? item.text,
+        min: ''+item.min,
+        max: ''+item.max,
+        val: ''+item.value,
         icon: config.icon,
         backdrop: config.backdrop,
       }
@@ -124,11 +124,12 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private getHardwareChild(id:string, data: HardwareItem): HardwareItem | null {
-    if (!data || !data.Children || data.Children.length <= 0) {
+    if (!data || !data.children || data.children.length <= 0) {
+      console.log('No data?', data);
       return null;
     }
     const intitalChild = data;
-    let currentChild: HardwareItem | undefined = data.Children?.find(item => item.Id == id);
+    let currentChild: HardwareItem | undefined = data.children?.find(item => item.id == id);
 
     return (currentChild == intitalChild || currentChild == undefined) ? null : currentChild;
   }

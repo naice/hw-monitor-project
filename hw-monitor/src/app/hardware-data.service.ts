@@ -3,12 +3,12 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { interval, Observable, Subject, Subscription } from 'rxjs';
 
 export interface HardwareItem {
-  Id?: string;
-  Text?: string;
-  Children?: HardwareItem[];
-  Min?: number;
-  Value?: number;
-  Max?: number;
+  id?: string;
+  text?: string;
+  children?: HardwareItem[];
+  min?: number;
+  value?: number;
+  max?: number;
 }
 
 
@@ -18,7 +18,7 @@ export interface HardwareItem {
 export class HardwareDataService {
 
   private dataRefreshRate: number = 2000;
-  private dataUrl = 'https://localhost:8086/Vitals';
+  private dataUrl = 'http://localhost:8085/Vitals';
 
   public data = new Subject<HardwareItem>();
 

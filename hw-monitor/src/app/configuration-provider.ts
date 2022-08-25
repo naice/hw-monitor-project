@@ -18,7 +18,7 @@ const configuration : Configuration = {
   displayData: [
     {
       manipulators: [ { name: 'fan-data-readable' }, { name: 'suffix-data', parameter: ' RPM' } ],
-      hardwareDataPath: '/lpc/nct6798d/fan/0',
+      hardwareDataPath: '/lpc/nct6798d/fan/6',
       name: 'Water Pump',
       backdrop: 'waterpump-bg.png',
       icon: 'fan',
