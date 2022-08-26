@@ -18,7 +18,7 @@ export interface HardwareItem {
 export class HardwareDataService {
 
   private dataRefreshRate: number = 2000;
-  private dataUrl = 'http://localhost:8085/Vitals';
+  private dataUrl = 'https://localhost:8085/Vitals';
 
   public data = new Subject<HardwareItem>();
 

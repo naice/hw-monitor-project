@@ -1,6 +1,6 @@
 ﻿using OpenHardwareMonitor.Hardware;
 
-namespace hw_monitor_server.Controllers
+namespace hw_monitor_server.Services
 {
     public class UpdateVisitor : IVisitor
     {
