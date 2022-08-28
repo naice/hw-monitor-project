@@ -21,7 +21,6 @@ builder.Services.Configure<MyComputerConfiguration>(
 builder.Services.Configure<InfluxSyncConfiguration>(
     builder.Configuration.GetSection(InfluxSyncConfiguration.SectionName));
 
-
 // MyServices
 builder.Services.AddSingleton<IComputer, MyComputer>();
 builder.Services.AddSingleton<IHardwareVitalsService, HardwareVitalsService>();
@@ -37,6 +36,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors(corsPolicy);
+
+app.UseDefaultFiles();
+
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 

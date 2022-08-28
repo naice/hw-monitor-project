@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start-live": "ng serve --host 0.0.0.0 --port 8086 --disable-host-check",
+    "deploy": "ng build --output-path ../bin/wwwroot",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
