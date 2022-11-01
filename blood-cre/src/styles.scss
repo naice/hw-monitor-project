@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'bloody_cre';
+  src: url('assets/BLOODY_CRE.ttf');
+}
+
+body {
+  height:100%;
+
+  background-image: url(assets/backdrop.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+}

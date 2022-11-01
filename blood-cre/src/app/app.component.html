@@ -1,0 +1,40 @@
+<div class="flex_container">
+  <div class="time">
+    {{ time | async }}
+  </div>
+  <div class="date">
+    {{ date | async }}
+  </div>
+</div>
+<div class="flex_container_data">
+  <div>
+    <canvas #cpuContext width="700" height="400"></canvas>
+  </div>
+  <div>
+    <canvas #hddContext width="700" height="700"></canvas>
+  </div>
+  <div class="date">
+    <table>
+      <tr>
+        <td>System</td>
+        <td>{{ sysTemp$ | async }}</td>
+        <td>°C</td>
+      </tr>
+      <tr>
+        <td>i9-10900k</td>
+        <td>{{ cpuTemp$ | async }}</td>
+        <td>°C</td>
+      </tr>
+      <tr>
+        <td>RTX 3090</td>
+        <td>{{ gpuTemp$ | async }}</td>
+        <td>°C</td>
+      </tr>
+      <tr>
+        <td>Pumpe</td>
+        <td>{{ pumpRpm$ | async }}</td>
+        <td>rpm</td>
+      </tr>
+    </table>
+  </div>
+</div>
