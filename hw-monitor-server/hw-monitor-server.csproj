@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="InfluxDB.Collector" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="6.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.Reactive" Version="5.0.0" />
   </ItemGroup>

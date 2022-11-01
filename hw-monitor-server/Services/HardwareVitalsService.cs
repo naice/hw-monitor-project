@@ -12,6 +12,9 @@ namespace hw_monitor_server.Services
     {
         private readonly IComputer _computer;
         private readonly UpdateVisitor _updateVisitor;
+        private readonly TimeSpan _debounceTime = TimeSpan.FromSeconds(2);
+        private DateTime _lastUpdateTime = DateTime.MinValue;
+        private HardwareItem? _hardwareItem = null;
 
         public HardwareVitalsService(IComputer computer)
         {
@@ -21,9 +24,12 @@ namespace hw_monitor_server.Services
 
         public HardwareItem GetVitals()
         {
-            var computer = BuildComputer(_computer);
+            if (_hardwareItem != null && DateTime.UtcNow - _lastUpdateTime < _debounceTime)
+                return _hardwareItem;
 
-            return computer;
+            _lastUpdateTime = DateTime.UtcNow;
+            _hardwareItem = BuildComputer(_computer);
+            return _hardwareItem;
         }
 
         private HardwareItem BuildComputer(IComputer computer)

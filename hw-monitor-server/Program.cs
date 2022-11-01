@@ -1,31 +1,41 @@
 using hw_monitor_server;
 using hw_monitor_server.Services;
+using Microsoft.Extensions.Hosting.WindowsServices;
 using OpenHardwareMonitor.Hardware;
 
 var corsPolicy = "hw-monitor-cors";
-var builder = WebApplication.CreateBuilder(args);
-
+var options = new WebApplicationOptions
+{
+    Args = args,
+    ContentRootPath = WindowsServiceHelpers.IsWindowsService()
+                                     ? AppContext.BaseDirectory : default
+};
+var builder = WebApplication.CreateBuilder(options);
+var services = builder.Services;
+var host = builder.Host;
 // Add services to the container
-builder.Services.AddControllers();
+services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddCors(p => p.AddPolicy(corsPolicy, builder =>
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
+services.AddCors(p => p.AddPolicy(corsPolicy, builder =>
 {
     builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));
 
 // MyConfigs
-builder.Services.Configure<MyComputerConfiguration>(
+services.Configure<MyComputerConfiguration>(
     builder.Configuration.GetSection(MyComputerConfiguration.SectionName));
-builder.Services.Configure<InfluxSyncConfiguration>(
+services.Configure<InfluxSyncConfiguration>(
     builder.Configuration.GetSection(InfluxSyncConfiguration.SectionName));
 
 // MyServices
-builder.Services.AddSingleton<IComputer, MyComputer>();
-builder.Services.AddSingleton<IHardwareVitalsService, HardwareVitalsService>();
-builder.Services.AddHostedService<InfluxSync>();
+services.AddSingleton<IComputer, MyComputer>();
+services.AddSingleton<IHardwareVitalsService, HardwareVitalsService>();
+services.AddHostedService<InfluxSync>();
 
+host.UseWindowsService();                  
+                                                                                     
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

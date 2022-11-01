@@ -38,10 +38,17 @@ namespace hw_monitor_server.Services
         {
             if (item == null) return;
             if (item.Value == null) return;
-            _metricsCollector.Write(item.Id, new Dictionary<string, object> {
+            _metricsCollector.Write(MakeId(item.Id), new Dictionary<string, object> {
                 { "Value", item.Value },
                 { "Name", item.Text },
             });
+        }
+
+        private static string MakeId(string id)
+        {
+            var res = id.TrimStart('/');
+            res = res.Replace('/', '_');
+            return res;
         }
 
         private void All(HardwareItem item, Action<HardwareItem> action)
